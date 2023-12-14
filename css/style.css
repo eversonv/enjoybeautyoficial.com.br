@@ -12298,7 +12298,7 @@ html:not(.ie-11):not(.ios) .parallax-disabled {
 }
 
 * + .video-link-wrapper {
-	margin-top: 50px;
+	margin-top: 150px;
 }
 
 @media (min-width: 1200px) {
