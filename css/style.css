@@ -1289,6 +1289,10 @@ html [class*='section-'].section-bottom-0 {
 		background-image: url(../images/slide-01-1894x1042.jpg);
 		background-size: cover;
 	}
+
+	.section-swiper-content {
+		padding-top: 220px !important;
+	}
 }
 
 @media (max-width: 575.98px) {
@@ -1298,6 +1302,10 @@ html [class*='section-'].section-bottom-0 {
 
 	.banner-mobile {
 		background-image: url(../images/slide-01-1894x1042-mobile.jpg);
+	}
+
+	.section-swiper-content {
+		padding-top: 60px !important;
 	}
 }
 
