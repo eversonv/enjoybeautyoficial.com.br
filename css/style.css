@@ -1286,7 +1286,7 @@ html [class*='section-'].section-bottom-0 {
 	}
 
 	.banner-mobile {
-		background-image: url(../images/banner-desktop-sombra.jpg);
+		background-image: url(../images/slide-01-1894x1042.jpg);
 		background-size: cover;
 	}
 
@@ -1310,7 +1310,7 @@ html [class*='section-'].section-bottom-0 {
 	}
 
 	.banner-mobile {
-		background-image: url(../images/banner-mobile.jpg);
+		background-image: url(../images/slide-01-1894x1042-mobile.jpg);
 	}
 
 	.section-swiper-content {
@@ -1319,7 +1319,7 @@ html [class*='section-'].section-bottom-0 {
 
 	.video-size {
 		width: 95%;
-		height: 400px;
+		height: 200px;
 	}
 
 	.banner-size {
@@ -1335,7 +1335,7 @@ html [class*='section-'].section-bottom-0 {
 		border-left: 1px solid #f4f2ee;
 	}
 	.banner-mobile {
-		background-image: url(../images/banner-tablet.jpg);
+		background-image: url(../images/slide-01-1894x1042-square.jpg);
 	}
 	.video-size {
 		width: 95%;
@@ -1356,7 +1356,7 @@ html [class*='section-'].section-bottom-0 {
 		border-right: 1px solid #f4f2ee;
 	}
 	.banner-mobile {
-		background-image: url(../images/banner-tablet.jpg);
+		background-image: url(../images/slide-01-1894x1042-square.jpg);
 	}
 	.banner-size {
 		height: 1000px;
@@ -1431,27 +1431,12 @@ h1,
 	}
 
 	.banner-mobile {
-		background-image: url(../images/banner-tablet.jpg);
+		background-image: url(../images/slide-01-1894x1042.jpg);
 	}
 	.banner-size {
 		height: 1000px;
 	}
 }
-
-@media (min-width: 1424px) {
-	h1,
-	.heading-1 {
-		font-size: 140px;
-	}
-
-	.banner-mobile {
-		background-image: url(../images/banner-desktop-sombra.jpg);
-	}
-	.banner-size {
-		height: 1000px;
-	}
-}
-
 
 h4 + h1,
 .heading-4 + .heading-1 {
