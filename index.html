@@ -63,6 +63,25 @@
 </head>
 
 <body>
+  <script>
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            mutation.addedNodes.forEach((node) => {
+                if (node.tagName === "IFRAME") {
+                    node.style.height = "600px"; // Ajuste o tamanho desejado
+                }
+            });
+        });
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Se o iframe já estiver na página, altera o height imediatamente
+    const iframe = document.querySelector("iframe");
+    if (iframe) {
+        iframe.style.height = "600px";
+    }
+</script>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLF3NK8B" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
@@ -139,37 +158,6 @@
           <div class="row justify-content-lg-center">
             <div class="col-lg-10">
               <ul class="list-inline list-inline-md wow" data-splitting data-wow-delay="1.5s">
-                <!-- <li>
-                  <div class="unit unit-spacing-xs align-items-center">
-                    <div class="unit-left line-height-reset">
-                      <svg class="svg-icon-sm svg-icon-primary" role="img">
-                        <use xlink:href="images/svg/sprite.svg#earth-globe"></use>
-                      </svg>
-                    </div>
-                    <div class="unit-body">
-                      <h5 class="text-spacing-100"><span class="big">Porto Alegre, RS</span></h5>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="unit unit-spacing-xs align-items-center">
-                    <div class="unit-left line-height-reset">
-                      <svg class="svg-icon-sm svg-icon-primary" role="img">
-                        <use xlink:href="images/svg/sprite.svg#small-calendar"></use>
-                      </svg>
-                    </div>
-                    <div class="unit-body">
-                      <h5 class="text-spacing-100"><span class="big">
-                          <time datetime="2019-01-05">17 de Março de 2024</time></span></h5>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-              <h1 class="wow fadeScale" data-caption-animate="fadeInUp" data-caption-delay="100"
-                data-caption-duration="900">Enjoy Beauty</h1>
-                <h4 class="wow fadeScale" data-caption-animate="fadeInUp" data-caption-delay="100"
-                data-caption-duration="900">Maior evento de beleza, bem-estar e negócios do RS</h4> -->
-                <!-- List Inline-->
                 <ul style="margin-top: 170px !important" class="list-inline list-inline-md wow" data-splitting
                   data-wow-delay="1.5s">
 
@@ -177,73 +165,57 @@
             </div>
           </div>
         </div>
-        <!-- Thumbnail Video Link-->
-        <!-- <div class="video-link-wrapper">
-          <div class="unit align-items-center">
-            <div class="unit-body text-right">
-              <h5><span class="big">Enjoy Beauty Edição 1<br> Confira como foi</span></h5>
-            </div>
-            <div class="unit-right"><a class="video-link" href="https://youtu.be/z4aSN29SjGk" data-lightgallery="item">
-                <div class="video-link-bg" data-triangle=".video-link-overlay">
-                  <span class="video-link-overlay"></span>
-                </div>
-                <span class="icon fa-play"></span>
-              </a></div>
-          </div>
-        </div> -->
       </div>
       <!-- Swiper Slider Absolute-->
       <div class="swiper-container swiper-slider swiper-slider-1" data-loop="true" data-simulate-touch="false"
         data-autoplay="8500" data-direction="horizontal" data-effect="fade">
         <div class="swiper-wrapper">
-          <div class="banner-mobile swiper-slide"></div>
-          <!-- <div class="swiper-slide banner-mobile" style="background-image: url(images/slide-01-1894x1042.jpg); background-size: cover;"></div> -->
-          <!-- <div class="swiper-slide" style="background-image: url(images/slide-01-1894x1042-mobile.jpg); background-size: cover; background-repeat: no-repeat;"></div> -->
+          <div class="banner-mobile swiper-slide">
+            
+          </div>
         </div>
-        <!-- <div class="swiper-pagination"></div> -->
       </div>
 
-      <!-- <div class="swiper-container swiper-slider swiper-slider-1" data-loop="true" data-simulate-touch="false"
-        data-autoplay="8500" data-direction="horizontal" data-effect="fade">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide" data-slide-bg="images/slide-01-1894x1042.jpg"></div>
-          <div class="swiper-slide" data-slide-bg="images/slide-02-1894x1042.jpg"></div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div> -->
     </section>
     <div class="row justify-content-center" style="margin-top: 10px !important; margin-bottom: 10px;">
       <a class="button button-primary" href="#tickets" data-triangle=".button-overlay"><span>GARANTIR MEU
           INGRESSO</span><span class="button-overlay"></span></a>
     </div>
-    <section class="parallax-container section" data-parallax-img="images/bg-parallax-05-1894x758.jpg">
+    <section class="parallax-container section" data-parallax-img="images/slide-02-1894x1042-original.jpg">
       <div class="parallax-content section-lg context-dark text-center">
-        <div class="">
-          <h6 class="text-secondary wow" data-splitting>1ª Edição realizada em Novo Hamburgo</h6>
-          <h2 class="wow" data-splitting>atraiu profissionais de todo o Brasil.</h2><br>
-          <iframe class="video-size" width="95%" height="200px"
-            src="https://www.youtube.com/embed/z4aSN29SjGk"></iframe>
+        <div class="" style="text-align: -webkit-center;">
+          <h6 class="text-secondary wow" data-splitting>A 2ª Edição realizada em Porto Algre</h6>
+          <h2 class="wow" data-splitting>atraiu mais de 1500 profissionais de todo o Brasil.</h2><br>
+          <h6 class="wow" style="padding: 10px;" data-splitting>Clique abaixo e confira um pouquinho do que rolou.</h6><br>
+          <!-- <iframe width="400" height="300" src="https://www.instagram.com/p/C4yVWlKAUvR/embed/" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+
+          <!-- <iframe class="video-size" width="95%" src="https://www.youtube.com/embed/z4aSN29SjGk">
+          </iframe> -->
+          <div>
+
+          </div>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C4yVWlKAUvR/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"><div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;"></div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> </div></a></div></blockquote>
+          <script async src="//www.instagram.com/embed.js"> 
+          </script>
         </div>
       </div>
     </section>
     <!-- Section Book Your Ticket-->
-    <section id="about" class="parallax-container section" data-parallax-img="images/bg-parallax-01-1894x778.jpg">
-      <div class="parallax-content section-lg context-dark text-center parallax-overlay-gradient-primary">
+    <section id="about" class="parallax-container section" data-parallax-img="images/slide-01-1894x1042-original.jpg">
+      <div class="parallax-content section-lg context-dark text-center">
         <div class="container wow fadeIn">
           <!-- Block with content-->
           <div class="block-lg block-center">
             <h6>SUA JORNADA RUMO AO TOPO <br>COMEÇA AQUI!</h6>
             <h3>ENJOY BEAUTY RS.</h3>
-            <!-- <h3>Garanta já sua poltrona.</h3> -->
-            <!-- <p>O ENJOY BEAUTY, maior Conference de negócios na área da beleza do Sul do país, foi criado para você, profissional da beleza e saúde que precisa dar um passo além da técnica. Idealizado para abordar mercado, negócios e estratégias empreendedoras, o evento é feito para elevar sua performance com cases reais de pessoas que inovam no seu mercado diariamente.</p> -->
             <p style="text-transform: uppercase;">Prepare-se para mudar o seu futuro! </br>
               É hora de aprender com quem está no topo.
               Os maiores nomes da área da beleza em um só lugar. <br><br>
-              GARANTA SEU INGRESSO AGORA NO Maior Evento de Negócios na Área da Beleza do Rio Grande do Sul. <br><br>
+              GARANTA SEU INGRESSO AGORA para o <strong>Maior Evento de Negócios na Área da Beleza do Rio Grande do Sul.</strong><br><br>
               Role para baixo e veja mais informações!
             </p>
             <!-- Countdown rectangle-->
-            <div class="countdown countdown-rect" data-countdown="data-countdown" data-to="2024-03-17 11:30">
+            <div class="countdown countdown-rect" data-countdown="data-countdown" data-to="2025-06-01 10:00">
               <div class="countdown-block box-with-triangle-right wow fadeScale countdown-block-days"
                 data-wow-delay="0s" data-triangle=".countdown-block-overlay">
                 <div class="countdown-block-overlay"></div>
@@ -311,14 +283,11 @@
         <div class="row row-30 justify-content-center">
           <div class="col-md-10 col-lg-6 col-xl-5">
             <h6>sobre o evento</h6>
-            <h3 class="heading-lg-postfix-15">Maior evento para empreendedores da área da beleza de 2024.</h3>
-            <p>O ENJOY BEAUTY é o MAIOR evento de negócios na área da beleza do Rio Grande do Sul. E estamos aqui para
-              convidar você, profissional da área, para se juntar aos mais de 1000 CONGRESSISTAS que estarão se
-              conectando e aprendendo a como expandir seus negócios com os maiores nomes do mercado. </p>
-            <p>Com nomes que são verdadeiras AUTORIDADES e referências no mercado da beleza e do empreendedorismo, o
-              ENJOY BEAUTY é a sua oportunidade de se transformar em uma autoridade também.</p>
-            <p>Cerca de 1600 profissionais da Beleza e Saúde, inquietos e sedentos por inovação irão mudar de vida com o
-              ENJOY BEAUTY. Você está preparado?</p>
+            <h3 class="heading-lg-postfix-15">3ª Edição do Maior evento para empreendedores da área da beleza de 2025.</h3>
+            <!-- <h3 class="heading-lg-postfix-15">3ª Edição do Maior evento de Negócios e Beleza do RS.</h3> -->
+            <p>O ENJOY BEAUTY se consagrou o MAIOR evento de Negócios na área da Beleza do Rio Grande do Sul. E estamos aqui para convidar você, profissional da área, para se juntar aos mais de 1500 CONGRESSISTAS que estarão presentes nesta super edição. Venha se conectar e aprender com os maiores nomes do setor. </p>
+            <p>Teremos novamente no palco do Enjoy Beauty, verdadeiras AUTORIDADES do mercado da beleza que irão compartilhar insights e dicas valiosas que te ajudarão a se tornar uma referência no mercado da sua região.</p>
+            <p>Cerca de 1600 profissionais da Beleza e Saúde, inquietos e sedentos por inovação irão mudar de vida com o ENJOY BEAUTY. Você está preparado?</p>
             <!-- List Inline-->
             <ul class="list-inline list-inline-xl">
               <li>
@@ -345,7 +314,7 @@
                   <div class="unit-body">
                     <h5>Quando</h5>
                     <p>
-                      <time datetime="2019-01-05">17 de Março de 2024 </time>
+                      <time datetime="2019-01-05">01 de Junho de 2025 </time>
                       </br>
                       <time datetime="2019-01-05">Das 10:00 às 21:00 </time>
                     </p>
@@ -359,11 +328,11 @@
             <!-- Image Box-->
             <div class="images-box">
               <div class="images-box-item images-box-item-right">
-                <div class="wow fadeScale"><img src="images/home-1-01-470x590.jpg" alt="" width="470" height="590" />
+                <div class="wow fadeScale"><img src="images/galeria-1-top.jpg" alt="" width="470" height="590" />
                 </div>
               </div>
               <div class="images-box-item images-box-item-left">
-                <div class="wow fadeScale"><img src="images/home-1-02-270x257.jpg" alt="" width="270" height="257" />
+                <div class="wow fadeScale"><img src="images/galeria-2-top.jpg" alt="" width="270" height="257" />
                 </div>
               </div>
             </div>
@@ -380,202 +349,24 @@
           <h6 class="text-secondary">Palestrantes Confirmados</h6>
           <h3>Quem estará no Palco do Enjoy Beauty?</h3>
           <div class="row row-30">
-            <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-12">
               <div>
                 <!-- Speaker-->
                 <div class="speaker">
                   <div class="speaker-img" data-triangle=".speaker-overlay">
-                    <div class="speaker-overlay"></div>
-                    <img src="images/speaker-natalia.jpg" alt="" width="330" height="354" />
-                    <ul class="speaker-social-list">
-                      <li><a target="_blank" class="icon icon-xs fa-instagram"
-                          href="https://www.instagram.com/nataliabeauty/"></a></li>
-                      <!-- <li><a class="icon icon-xs fa-twitter" href="#"></a></li>
-                      <li><a class="icon icon-xs fa-youtube-play" href="#"></a></li> -->
-                    </ul>
-                  </div>
-                  <h5 class="speaker-title"><a target="_blank" href="https://www.instagram.com/nataliabeauty/">Natalia
-                      Beauty</a></h5>
-                  <p class="speaker-position">Empresária | Palestrante | Mentora | </br>Fundadora NB Group</p>
-                  <h5 style="color: purple;" class="speaker-title">Palestra</h5>
-                  <p style="color: purple;" class="speaker-position">Branding de alto impacto, Gestão de Equipe, Ecossistema de inovação.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <div>
-                <!-- Speaker-->
-                <div class="speaker">
-                  <div class="speaker-img" data-triangle=".speaker-overlay">
-                    <div class="speaker-overlay"></div>
-                    <img src="images/speaker-gue.jpg" alt="" width="330" height="354" />
-                    <ul class="speaker-social-list">
-                      <li><a target="_blank" class="icon icon-xs fa-instagram"
-                          href="https://www.instagram.com/gueoliveira/"></a></li>
-                    </ul>
-                  </div>
-                  <h5 class="speaker-title"><a target="_blank" href="https://www.instagram.com/gueoliveira/">Gue Oliveira</a></h5>
-                  <p class="speaker-position">Empresária | Cabelereira Sensação nas Redes Sociais | <br>Criadora do Transformações às Cegas</p>
-                  <h5 style="color: purple;" class="speaker-title">Palestra</h5>
-                  <p style="color: purple;" class="speaker-position">Arte de transformação, Construção de Marca pessoal e o Poder da viralização digital.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <div>
-                <!-- Speaker-->
-                <div class="speaker">
-                  <div class="speaker-img" data-triangle=".speaker-overlay">
-                    <div class="speaker-overlay"></div>
-                    <img src="images/speaker-agustin.jpg" alt="" width="330" height="354" />
-                    <ul class="speaker-social-list">
-                      <li><a target="_blank" class="icon icon-xs fa-instagram"
-                          href="https://www.instagram.com/agustinofficial/"></a></li>
-                    </ul>
-                  </div>
-                  <h5 class="speaker-title"><a target="_blank" href="https://www.instagram.com/agustinofficial/">Agustin Fernandez - DIVO</a></h5>
-                  <p class="speaker-position">Empresário | Expert de Beleza há 15 anos | <br>+ R$ 100 Milhões Faturados| Loja do Divo</p>
-                  <h5 style="color: purple;" class="speaker-title">Palestra</h5>
-                  <p style="color: purple;" class="speaker-position">Ecossistema de salão de beleza, Jornada do Cliente e Esteira de produtos e serviços.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row row-30">
-            <div class="col-md-6 col-lg-4">
-              <div>
-                <!-- Speaker-->
-                <div class="speaker">
-                  <div class="speaker-img" data-triangle=".speaker-overlay">
-                    <div class="speaker-overlay"></div><img src="images/speaker-03-330x354.jpg" alt="" width="330"
-                      height="354" />
-                    <ul class="speaker-social-list">
-                      <li><a target="_blank" class="icon icon-xs fa-instagram"
-                          href="https://www.instagram.com/jamesolaya/"></a></li>
-                    </ul>
-                  </div>
-                  <h5 class="speaker-title"><a target="_blank" href="https://www.instagram.com/jamesolaya/">James Olaya</a></h5>
-                  <p class="speaker-position">Biomédico | Educador | Palestrante | CEO Instituto James Olaya Beauty and Academy</p>
-                  <h5 style="color: purple;" class="speaker-title">Palestra</h5>
-                  <p style="color: purple;" class="speaker-position">Até onde a técnica pode te levar? Qualidade na educação de artistas.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <div>
-                <!-- Speaker-->
-                <div class="speaker">
-                  <div class="speaker-img" data-triangle=".speaker-overlay">
-                    <div class="speaker-overlay"></div>
-                    <img src="images/speaker-02-330x354.jpg" alt="" width="330" height="354" />
-                    <ul class="speaker-social-list">
-                      <li><a target="_blank" class="icon icon-xs fa-instagram"
-                          href="https://www.instagram.com/felipepachecoborges/"></a></li>
-                      <!-- <li><a class="icon icon-xs fa-twitter" href="#"></a></li>
-                      <li><a class="icon icon-xs fa-youtube-play" href="#"></a></li> -->
-                    </ul>
-                  </div>
-                  <h5 class="speaker-title"><a target="_blank"
-                      href="https://www.instagram.com/felipepachecoborges/">Felipe Pacheco</a></h5>
-                  <p class="speaker-position">Advogado | Empresário | Investidor | </br>Diretor Executivo NB Group</p>
-                  <h5 style="color: purple;" class="speaker-title">Palestra</h5>
-                  <p style="color: purple;" class="speaker-position">Como crescer pessoalmente e profissionalmente saindo do operacional e impulsionando seu negócio de maneira eficaz e funcional.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <div>
-                <!-- Speaker-->
-                <div class="speaker">
-                  <div class="speaker-img" data-triangle=".speaker-overlay">
-                    <div class="speaker-overlay"></div>
-                    <img src="images/speaker-04.jpg" alt="" width="330" height="354" />
-                    <ul class="speaker-social-list">
-                      <li><a target="_blank" class="icon icon-xs fa-instagram"
-                          href="https://www.instagram.com/saboiaodontologia/"></a></li>
-                    </ul>
-                  </div>
-                  <h5 class="speaker-title"><a target="_blank" href="https://www.instagram.com/saboiaodontologia/">Drs. Alessandro e Márcia Saboia</a></h5>
-                  <p class="speaker-position">Empresários | Mentores | </br>Fundadores da Saboia Odontologia</p>
-                  <h5 style="color: purple;" class="speaker-title">Palestra</h5>
-                  <p style="color: purple;" class="speaker-position">Uma história para se inspirar. Como referência nacional em odontologia de ponta, iremos te ensinar como conquistar os pacientes High Ticket.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row row-30">
-            <div class="col-md-6 col-lg-4">
-              <div>
-                <!-- Speaker-->
-                <div class="speaker">
-                  <div class="speaker-img" data-triangle=".speaker-overlay">
-                    <div class="speaker-overlay"></div><img src="images/speaker-05.jpg" alt="" width="330"
-                      height="354" />
-                    <ul class="speaker-social-list">
-                      <li><a target="_blank" class="icon icon-xs fa-instagram"
-                          href="https://www.instagram.com/drthauansantos.medico/"></a></li>
-                    </ul>
-                  </div>
-                  <h5 class="speaker-title"><a target="_blank" href="https://www.instagram.com/drthauansantos.medico/">Dr. Thauan Santos</a></h5>
-                  <p class="speaker-position">Médico | Mentor | Palestrante | </br>Apresentador Pod Ter Saúde Podcast</p>
-                  <h5 style="color: purple;" class="speaker-title">Palestra</h5>
-                  <p style="color: purple;" class="speaker-position">Disposição, energia e produtividade atrelados à saúde para atingir grandes faturamentos.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <div>
-                <!-- Speaker-->
-                <div class="speaker">
-                  <div class="speaker-img" data-triangle=".speaker-overlay">
-                    <div class="speaker-overlay"></div>
-                    <img src="images/speaker-mari.jpg" alt="" width="330" height="354" />
-                    <ul class="speaker-social-list">
-                      <li><a target="_blank" class="icon icon-xs fa-instagram"
-                          href="https://www.instagram.com/dramarianageisel/"></a></li>
-                    </ul>
-                  </div>
-                  <h5 class="speaker-title"><a target="_blank"
-                      href="https://www.instagram.com/dramarianageisel/">Mariana Geisel</a></h5>
-                  <p class="speaker-position">Empresária | Especialista em Saúde Estética | </br>Proprietária Emagrecentro Canoas</p>
-                  <h5 style="color: purple;" class="speaker-title">Palestra</h5>
-                  <p style="color: purple;" class="speaker-position">A Fórmula do Sucesso: Avaliações de Alto Impacto que convertem vendas.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <div>
-                <!-- Speaker-->
-                <div class="speaker">
-                  <div class="speaker-img" data-triangle=".speaker-overlay">
-                    <div class="speaker-overlay"></div><img src="images/speaker-06.jpg" alt="" width="330"
-                      height="354" />
-                    <ul class="speaker-social-list">
-                      <li><a target="_blank" class="icon icon-xs fa-instagram"
-                          href="https://www.instagram.com/drthauansantos.medico/"></a></li>
-                    </ul>
-                  </div>
-                  <h5 class="speaker-title"><a target="_blank"
-                      href="https://www.instagram.com/drthauansantos.medico/">MAIS ALGUÉM?</a></h5>
-                  <p class="speaker-position">SERÁ QUE VEM MAIS ALGUÉM? </br>...</p>
-                </div>
-              </div>
-            </div>
-            <!-- <div class="col-md-6 col-lg-4">
-              <div>
-                <div class="speaker">
-                  <div class="speaker-img" data-triangle=".speaker-overlay">
-                    <div class="speaker-overlay"></div><img src="images/speaker-06.jpg" alt="" width="330"
+                    <div class="speaker-overlay"></div><img src="images/speaker-sombra.jpg" alt="" width="330"
                       height="354" />
                     <ul class="speaker-social-list">
                       <li><a target="_blank" class="icon icon-xs fa-instagram"
                           href=""></a></li>
                     </ul>
                   </div>
-                  <h5 class="speaker-title"><a target="_blank" href="">Palestrante Convidado</a></h5>
-                  <p class="speaker-position">???</br>???</p>
+                  <h5 class="speaker-title"><a target="_blank"
+                      href="">TEM MUITA GENTE VINDO AÍ!!!</a></h5>
+                  <p class="speaker-position">AGUARDE!</br>...</p>
                 </div>
-              </div> -->
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -593,7 +384,7 @@
       <div class="tabs-custom tabs-horizontal tabs-corporate" id="tabs-1">
         <!--Nav tabs-->
         <ul class="nav nav-tabs">
-          <li class="nav-item" role="presentation"><a class="nav-link nav-link nav-link-secondary-darker" href="#tabs-1-1" data-toggle="tab" data-triangle=".nav-link-overlay"><span class="nav-link-overlay"></span><span class="nav-link-cite">Dia 1 - EVENTO</span><span class="nav-link-title">Março 17, 2024</span></a></li>
+          <li class="nav-item" role="presentation"><a class="nav-link nav-link nav-link-secondary-darker" href="#tabs-1-1" data-toggle="tab" data-triangle=".nav-link-overlay"><span class="nav-link-overlay"></span><span class="nav-link-cite">Dia 1 - EVENTO</span><span class="nav-link-title">01 de Junho de 2025</span></a></li>
           <!-- <li class="nav-item" role="presentation"><a class="nav-link nav-link-purple-heart" href="#tabs-1-2" data-toggle="tab" data-triangle=".nav-link-overlay"><span class="nav-link-overlay"></span><span class="nav-link-cite">Dia 2 - MENTORIA</span><span class="nav-link-title">Março 18, 2024</span></a></li> -->
         </ul>
         <!--Tab panes-->
@@ -603,19 +394,25 @@
               <!--Bootstrap card-->
               <article class="card card-custom card-corporate">
                 <div class="card-header" role="tab">
-                  <div class="card-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accordion1-card-body-onwkttkd" aria-controls="accordion1-card-body-onwkttkd" aria-expanded="false" role="button"><span class="schedule-classic"><span class="unit unit-spacing-md align-items-center d-block d-md-flex"><span class="unit-left"><span class="schedule-classic-img"></span></span><span class="unit-body"><span class="schedule-classic-content"><span class="schedule-classic-time">10:00 - 11:45</span><span class="schedule-classic-title heading-4">Credenciamento</span></span></span></span></span></a></div>
+                  <div class="card-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accordion1-card-body-onwkttkd" aria-controls="accordion1-card-body-onwkttkd" aria-expanded="false" role="button"><span class="schedule-classic"><span class="unit unit-spacing-md align-items-center d-block d-md-flex"><span class="unit-left"><span class="schedule-classic-img"></span></span><span class="unit-body"><span class="schedule-classic-content"><span class="schedule-classic-time">09:00 - 12:00</span><span class="schedule-classic-title heading-4">Credenciamento</span></span></span></span></span></a></div>
                 </div>
               </article>
               <!--Bootstrap card-->
               <article class="card card-custom card-corporate">
                 <div class="card-header" role="tab">
-                  <div class="card-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accordion1-card-body-lffuwxio" aria-controls="accordion1-card-body-lffuwxio" aria-expanded="false" role="button"><span class="schedule-classic"><span class="unit unit-spacing-md align-items-center d-block d-md-flex"><span class="unit-left"><span class="schedule-classic-img"></span></span><span class="unit-body"><span class="schedule-classic-content"><span class="schedule-classic-time">11:50 - 12:10</span><span class="schedule-classic-title heading-4">Cerimônia de Abertura</span></span></span></span></span></a></div>
+                  <div class="card-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accordion1-card-body-lffuwxio" aria-controls="accordion1-card-body-lffuwxio" aria-expanded="false" role="button"><span class="schedule-classic"><span class="unit unit-spacing-md align-items-center d-block d-md-flex"><span class="unit-left"><span class="schedule-classic-img"></span></span><span class="unit-body"><span class="schedule-classic-content"><span class="schedule-classic-time">12:00 - 13:00</span><span class="schedule-classic-title heading-4">Abertura do Teatro</span></span></span></span></span></a></div>
                 </div>
               </article>
               <!--Bootstrap card-->
               <article class="card card-custom card-corporate">
                 <div class="card-header" role="tab">
-                  <div class="card-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accordion1-card-body-lffuwxio" aria-controls="accordion1-card-body-lffuwxio" aria-expanded="false" role="button"><span class="schedule-classic"><span class="unit unit-spacing-md align-items-center d-block d-md-flex"><span class="unit-left"><span class="schedule-classic-img"></span></span><span class="unit-body"><span class="schedule-classic-content"><span class="schedule-classic-time">12:10 - 16:00</span><span class="schedule-classic-title heading-4">Palestras</span></span></span></span></span></a></div>
+                  <div class="card-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accordion1-card-body-lffuwxio" aria-controls="accordion1-card-body-lffuwxio" aria-expanded="false" role="button"><span class="schedule-classic"><span class="unit unit-spacing-md align-items-center d-block d-md-flex"><span class="unit-left"><span class="schedule-classic-img"></span></span><span class="unit-body"><span class="schedule-classic-content"><span class="schedule-classic-time">13:00 - 13:15</span><span class="schedule-classic-title heading-4">Cerimônia de Abertura</span></span></span></span></span></a></div>
+                </div>
+              </article>
+              <!--Bootstrap card-->
+              <article class="card card-custom card-corporate">
+                <div class="card-header" role="tab">
+                  <div class="card-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accordion1-card-body-lffuwxio" aria-controls="accordion1-card-body-lffuwxio" aria-expanded="false" role="button"><span class="schedule-classic"><span class="unit unit-spacing-md align-items-center d-block d-md-flex"><span class="unit-left"><span class="schedule-classic-img"></span></span><span class="unit-body"><span class="schedule-classic-content"><span class="schedule-classic-time">13:20 - 16:45</span><span class="schedule-classic-title heading-4">Palestras</span></span></span></span></span></a></div>
                 </div>
               </article>
               <!-- Schedule Simple-->
@@ -625,13 +422,13 @@
                             <svg class="svg-icon-md svg-icon-primary" role="img">
                               <use xlink:href="images/svg/sprite.svg#clock"></use>
                             </svg>
-                          </div><span class="schedule-classic-time">16:00 - 17:00</span><span class="schedule-classic-title heading-4">Intervalo</span>
+                          </div><span class="schedule-classic-time">16:45 - 17:45</span><span class="schedule-classic-title heading-4">Intervalo</span>
                         </div>
                       </div>
               <!--Bootstrap card-->
               <article class="card card-custom card-corporate">
                 <div class="card-header" role="tab">
-                  <div class="card-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accordion1-card-body-lffuwxio" aria-controls="accordion1-card-body-lffuwxio" aria-expanded="false" role="button"><span class="schedule-classic"><span class="unit unit-spacing-md align-items-center d-block d-md-flex"><span class="unit-left"><span class="schedule-classic-img"></span></span><span class="unit-body"><span class="schedule-classic-content"><span class="schedule-classic-time">17:00 - 21:00</span><span class="schedule-classic-title heading-4">Palestras</span></span></span></span></span></a></div>
+                  <div class="card-title"><a class="collapsed" data-toggle="collapse" data-parent="#accordion1" href="#accordion1-card-body-lffuwxio" aria-controls="accordion1-card-body-lffuwxio" aria-expanded="false" role="button"><span class="schedule-classic"><span class="unit unit-spacing-md align-items-center d-block d-md-flex"><span class="unit-left"><span class="schedule-classic-img"></span></span><span class="unit-body"><span class="schedule-classic-content"><span class="schedule-classic-time">17:45 - 21:10</span><span class="schedule-classic-title heading-4">Palestras</span></span></span></span></span></a></div>
                 </div>
               </article>
               <!-- Schedule Simple-->
@@ -641,8 +438,8 @@
                             <svg class="svg-icon-md svg-icon-primary" role="img">
                               <use xlink:href="images/svg/sprite.svg#clock"></use>
                             </svg>
-                          </div><span class="schedule-classic-time">21:00 - 22:00</span><span class="schedule-classic-title heading-4">Coquetel VIP Enjoy</span>
-                          <span class="schedule-classic-title heading-6">* somente para ingressos VIP</span>
+                          </div><span class="schedule-classic-time">21:10 - 22:00</span><span class="schedule-classic-title heading-4">FOTOS VIP</span>
+                          <span class="schedule-classic-title heading-6">* somente para ingressos VIP e MENTORIA</span>
                         </div>
                       </div>
               <!--Bootstrap card-->
@@ -662,11 +459,27 @@
         <div class="col-lg-6">
           <div class="wow fadeIn">
             <div class="wow">
-              <!-- Gallery Thumbnail--><a class="thumbnail-big" href="images/gallery-06-original-1200x798.jpg"
+              <!-- Gallery Thumbnail--><a class="thumbnail-big" href="images/edicao-2/galeria-1.jpg"
                 data-lightgallery="item"><span class="thumbnail-big-overlay"></span><span
-                  class="thumbnail-big-icon"></span><img src="images/gallery-06-942x473.jpg" alt="" width="942"
+                  class="thumbnail-big-icon"></span><img src="images/edicao-2/galeria-1.jpg" alt="" width="942"
                   height="473" /></a>
             </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-lg-3">
+          <div class="wow">
+            <!-- Gallery Thumbnail--><a class="thumbnail-big" href="images/edicao-2/galeria-2.jpg"
+              data-lightgallery="item"><span class="thumbnail-big-overlay"></span><span
+                class="thumbnail-big-icon"></span><img src="images/edicao-2/galeria-2.jpg" alt="" width="466"
+                height="473" /></a>
+          </div>
+        </div>
+        <div class="col-xs-6 col-lg-3">
+          <div class="wow">
+            <!-- Gallery Thumbnail--><a class="thumbnail-big" href="images/edicao-2/galeria-3.jpg"
+              data-lightgallery="item"><span class="thumbnail-big-overlay"></span><span
+                class="thumbnail-big-icon"></span><img src="images/edicao-2/galeria-3.jpg" alt="" width="466"
+                height="473" /></a>
           </div>
         </div>
         <div class="col-xs-6 col-lg-3">
@@ -679,33 +492,33 @@
         </div>
         <div class="col-xs-6 col-lg-3">
           <div class="wow">
-            <!-- Gallery Thumbnail--><a class="thumbnail-big" href="images/gallery-08-original-1200x800.jpg"
+            <!-- Gallery Thumbnail--><a class="thumbnail-big" href="images/edicao-2/galeria-4.jpg"
               data-lightgallery="item"><span class="thumbnail-big-overlay"></span><span
-                class="thumbnail-big-icon"></span><img src="images/gallery-08-466x473.jpg" alt="" width="466"
+                class="thumbnail-big-icon"></span><img src="images/edicao-2/galeria-4.jpg" alt="" width="466"
                 height="473" /></a>
           </div>
         </div>
         <div class="col-xs-6 col-lg-3">
           <div class="wow">
-            <!-- Gallery Thumbnail--><a class="thumbnail-big" href="images/gallery-09-original-1200x800.jpg"
+            <!-- Gallery Thumbnail--><a class="thumbnail-big" href="images/edicao-2/galeria-5.jpg"
               data-lightgallery="item"><span class="thumbnail-big-overlay"></span><span
-                class="thumbnail-big-icon"></span><img src="images/gallery-09-466x473.jpg" alt="" width="466"
+                class="thumbnail-big-icon"></span><img src="images/edicao-2/galeria-5.jpg" alt="" width="466"
                 height="473" /></a>
           </div>
         </div>
         <div class="col-xs-6 col-lg-3">
           <div class="wow">
-            <!-- Gallery Thumbnail--><a class="thumbnail-big" href="images/gallery-10-original-1200x800.jpg"
+            <!-- Gallery Thumbnail--><a class="thumbnail-big" href="images/edicao-2/galeria-6.jpg"
               data-lightgallery="item"><span class="thumbnail-big-overlay"></span><span
-                class="thumbnail-big-icon"></span><img src="images/gallery-10-466x473.jpg" alt="" width="466"
+                class="thumbnail-big-icon"></span><img src="images/edicao-2/galeria-6.jpg" alt="" width="466"
                 height="473" /></a>
           </div>
         </div>
         <div class="col-lg-6">
           <div class="wow">
-            <!-- Gallery Thumbnail--><a class="thumbnail-big" href="images/gallery-11-original-1200x800.jpg"
+            <!-- Gallery Thumbnail--><a class="thumbnail-big" href="images/edicao-2/galeria-7.jpg"
               data-lightgallery="item"><span class="thumbnail-big-overlay"></span><span
-                class="thumbnail-big-icon"></span><img src="images/gallery-11-942x473.jpg" alt="" width="942"
+                class="thumbnail-big-icon"></span><img src="images/edicao-2/galeria-7.jpg" alt="" width="942"
                 height="473" /></a>
           </div>
         </div>
@@ -719,7 +532,7 @@
   <!-- Section Our Testimonials-->
   <section class="section parallax-js section-lg bg-default text-center">
     <div class="container">
-      <h6>Edição 1 - O que estão dizendo</h6>
+      <h6>Enjoy Beauty - O que estão dizendo</h6>
       <h3>Depoimentos.</h3>
       <div class="row row-30 justify-content-center">
         <div class="col-md-10 col-lg-8">
@@ -944,21 +757,21 @@
         <div class="col-sm-6 col-lg-4">
           <div class="pricing-modern pricing-modern-primary">
             <div class="pricing-modern-header">
-              <h6 class="pricing-modern-title">Congressista - Lote 3</h6>
-              <p class="pricing-modern-price heading-3">10x de R$ 47,00
-              <h4>ou R$ 397,00 à vista</h4>
+              <h6 class="pricing-modern-title">Congressista - PRÉ-VENDA ÀS CEGAS</h6>
+              <p class="pricing-modern-price heading-3">12x de R$ 27,00
+              <h4>ou R$ 267,00 à vista</h4>
               </p>
               <p class="pricing-modern-description">Ingresso Normal</p>
             </div>
             <div class="pricing-modern-body">
               <ul class="pricing-modern-list">
-                <li>Poltronas regulares</li>
-                <li>Assento confortável</li>
-                <li>Acesso a todas as palestras</li>
-                <li>Certificado</li>
+                <li>- Poltronas regulares</li>
+                <li>- Assento confortável</li>
+                <li>- Acesso a todas as palestras</li>
+                <li>- Certificado</li>
               </ul>
-              <a target="_blank" class="button button-primary" href="https://sun.eduzz.com/2109501"
-                data-triangle=".button-overlay"><span>comprar lote 3</span><span class="button-overlay"></span></a>
+              <a target="_blank" class="button button-primary" href="https://chk.eduzz.com/KW83YD2D01?pf=1"
+                data-triangle=".button-overlay"><span>comprar lote - ÀS CEGAS</span><span class="button-overlay"></span></a>
                 <p><strong>
                   * Proibida a entrada de menores de 12 anos
                 </p></strong>
@@ -969,22 +782,23 @@
         <div class="col-sm-6 col-lg-4">
           <div class="pricing-modern pricing-modern-primary">
             <div class="pricing-modern-header">
-              <h6 class="pricing-modern-title">Ingresso VIP - Lote 3</h6>
-              <p class="pricing-modern-price heading-3">10x de R$ 166,00
-              <h4>ou R$ 1.397,00 à vista</h4>
+              <h6 class="pricing-modern-title">Ingresso VIP - Pré-Venda Às Cegas</h6>
+              <p class="pricing-modern-price heading-3">12x de R$ 81,00
+              <h4>ou R$ 798,00 à vista</h4>
               </p>
               <p class="pricing-modern-description">Ingresso VIP</p>
             </div>
             <div class="pricing-modern-body">
               <ul class="pricing-modern-list">
-                <li>Todos os benefícios do Congressista</li>
-                <li>Fila VIP</li>
-                <li>Poltrona Privilegiada</li>
-                <li>Happy Hour Exclusivo com Palestrantes</li>
-                <li>Foto Oficial com Palestrantes</li>
+                <li>- Todos os benefícios do Congressista</li>
+                <li>- Fila VIP</li>
+                <li>- Poltrona Privilegiada</li>
+                <li>- Foto Oficial com Palestrante Inédito</li>
+                <li>- Café, Água e Snacks durante o Evento</li>
+                <li>- 4 Horas de Mentoria Online sobre Gestão, Marketing e Vendas com Realizadores do Evento (Cássia Trott, Everson Vargas, Guilherme Flores e Scheron Wiatroski)</li>
               </ul>
-              <a target="_blank" class="button button-primary" href="https://sun.eduzz.com/2109718"
-                data-triangle=".button-overlay"><span>Comprar Ingresso VIP</span><span
+              <a target="_blank" class="button button-primary" href="https://chk.eduzz.com/7WX5ERPY0A?pf=1"
+                data-triangle=".button-overlay"><span>Comprar Ingresso VIP - ÀS CEGAS</span><span
                   class="button-overlay"></span></a>
                   <p><strong>
                     * Proibida a entrada de menores de 12 anos
@@ -996,25 +810,25 @@
           <div class="pricing-modern pricing-modern-primary">
             <div class="pricing-modern-header">
               <h6 class="pricing-modern-title">Mentoria Enjoy Business</h6>
-              <p class="pricing-modern-price heading-3">10x de R$ 392,00
-              <h4>ou R$ 3.297,00 à vista</h4>
+              <p class="pricing-modern-price heading-3">12x de R$ 306,00
+              <h4>ou R$ 2.997,00 à vista</h4>
               </p>
-              <p class="pricing-modern-description">Mentoria Exclusiva com Natalia Beauty e Felipe Pacheco</p>
+              <p class="pricing-modern-description">Mentoria Exclusiva com Mega Empresária</p>
             </div>
             <div class="pricing-modern-body">
               <ul class="pricing-modern-list">
                 <li>Todos os Benefícios do Ingresso VIP</li>
-                <li>4 Horas de Mentoria no dia 18/03</li>
+                <li>4 Horas de Mentoria no dia 02/06</li>
                 <li>Material de apoio</li>
                 <li>Foto Oficial da Mentoria</li>
                 <li>Certificado de Formação</li>
                 <li>Vagas Limitadas</li>
               </ul>
-              <a target="_blank" class="button button-primary" href="https://sun.eduzz.com/2187880"
+              <a target="_blank" class="button button-primary" href="https://chk.eduzz.com/801VGPYR97?pf=1"
                 data-triangle=".button-overlay"><span>Comprar VIP + Mentoria</span><span
                   class="button-overlay"></span></a>
                   <p><strong>
-                    * Proibida a entrada de menores de 12 anos
+                    * Proibida a entrada de menores de 16 anos
                   </p></strong>
             </div>
           </div>
@@ -1028,7 +842,8 @@
     <div class="parallax-content section-lg context-dark text-center">
       <div class="container">
         <h6>Nossos patrocinadores</h6>
-        <h3>Patrocinadores Oficiais</br>COTA DIAMANTE.</h3>
+        <h3>EM BREVE</h3>
+        <!-- <h3>Patrocinadores Oficiais</br>COTA DIAMANTE.</h3>
         <div class="row row-30 row-lg-50 justify-content-center">
           <div class="col-sm-5 col-lg-4">
             <div class="wow">
@@ -1096,71 +911,11 @@
               </div>
             </div>
           </div>
-          <!-- <div class="col-xl-12">
-            <p class="font-weight-sbold font-secondary"><span class="wow" data-splitting>Quer fazer parte deste evento
-              e fortalecer a sua marca? Entre em contato.</span> <a class="link-inline wow fadeScale"
-              href="https://wa.me/5551980194126?text=Ol%C3%A1.%20Gostaria%20de%20saber%20mais%20sobre%20como%20ser%20um%20patrocinador%20do%20evento.%20Obrigado.">Enviar
-              Whatsapp</a>
-          </p>
-          </div> -->
-        </div>
-        <!-- FIM DA COTA DIAMANTE -->
-        <!-- <div class="row row-30 row-lg-50 justify-content-center">
-          <div class="col-sm-5 col-lg-3">
-            <div class="wow">
-              <div>
-                <a class="sponsor" href="#tickets" data-triangle=".sponsor-overlay">
-                  <div class="sponsor-overlay"></div>
-                  <div class="sponsor-img"><img src="images/sponsors/diamante-refectocil.png" alt="" width="100%" height="100%" />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-5 col-lg-3">
-            <div class="wow">
-              <div>
-                <a class="sponsor" href="#tickets" data-triangle=".sponsor-overlay">
-                  <div class="sponsor-overlay"></div>
-                  <div class="sponsor-img"><img src="images/sponsors/diamante-saboia.png" alt="" width="100%" height="100%" />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-5 col-lg-3">
-            <div class="wow">
-              <div>
-                <a class="sponsor" href="#tickets" data-triangle=".sponsor-overlay">
-                  <div class="sponsor-overlay"></div>
-                  <div class="sponsor-img"><img src="images/sponsors/diamante-dermia.png" alt="" width="100%" height="100%" />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-5 col-lg-3">
-            <div class="wow">
-              <div>
-                <a class="sponsor" href="#tickets" data-triangle=".sponsor-overlay">
-                  <div class="sponsor-overlay"></div>
-                  <div class="sponsor-img"><img src="images/sponsors/diamante-mari.png" alt="" width="100%" height="100%" />
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-12">
-            <p class="font-weight-sbold font-secondary"><span class="wow" data-splitting>Quer fazer parte deste evento
-              e fortalecer a sua marca? Entre em contato.</span> <a class="link-inline wow fadeScale"
-              href="https://wa.me/5551980194126?text=Ol%C3%A1.%20Gostaria%20de%20saber%20mais%20sobre%20como%20ser%20um%20patrocinador%20do%20evento.%20Obrigado.">Enviar
-              Whatsapp</a>
-          </p>
-          </div>
         </div> -->
+        <!-- FIM DA COTA DIAMANTE -->
       </div>
       <div class="container">
-        <h3>COTA OURO</h3>
+      <!--   <h3>COTA OURO</h3>
         <div class="row row-30 row-lg-50 justify-content-center">
           <div class="col-sm-5 col-lg-3">
             <div class="wow">
@@ -1239,11 +994,11 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- FIM DA COTA OURO -->
       </div>
       <div class="container">
-        <h3>COTA PRATA</h3>
+        <!-- <h3>COTA PRATA</h3>
         <div class="row row-30 row-lg-50 justify-content-center">
           <div class="col-sm-5 col-lg-3">
             <div class="wow">
@@ -1267,7 +1022,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- FIM DA COTA PRATA -->
       </div>
     </div>
@@ -1328,7 +1083,7 @@
           <h5><span class="big font-weight-sbold">Detalhes do Evento</span></h5>
           <div class="event-detail">
             <p class="event-detail-time big">
-              <time data-splitting datetime="2019-01-05">17 de Março de 2024</time>
+              <time data-splitting datetime="2019-01-05">02 de Junho de 2025</time>
             </p>
             <p class="event-detail-address big" data-splitting>PUCRS</p>
             <p class="event-detail-address big" data-splitting>Av. Ipiranga, 6681 Partenon - Porto Alegre / RS.</p>
